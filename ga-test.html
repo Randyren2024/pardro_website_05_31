@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics 测试页面</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1VNPLE486"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L1VNPLE486', {
+        debug_mode: true
+      });
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MJPSTR');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #3367d6;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        #console-output {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJPSTR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <h1>Google Analytics 数据流测试</h1>
+    
+    <div class="test-section">
+        <h2>基础事件测试</h2>
+        <p>测试基本的 GA4 事件跟踪功能</p>
+        <button onclick="testPageView()">测试页面浏览</button>
+        <button onclick="testCustomEvent()">测试自定义事件</button>
+        <button onclick="testUserEngagement()">测试用户参与度</button>
+        <div id="basic-status" class="status info">等待测试...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>电商事件测试</h2>
+        <p>测试电商相关的事件跟踪</p>
+        <button onclick="testViewItem()">查看商品</button>
+        <button onclick="testAddToCart()">添加到购物车</button>
+        <button onclick="testPurchase()">模拟购买</button>
+        <div id="ecommerce-status" class="status info">等待测试...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>用户行为测试</h2>
+        <p>测试用户交互行为跟踪</p>
+        <button onclick="testScroll()">滚动事件</button>
+        <button onclick="testClick()">点击事件</button>
+        <button onclick="testFormSubmit()">表单提交</button>
+        <div id="behavior-status" class="status info">等待测试...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>数据层监控</h2>
+        <p>实时监控 dataLayer 推送的数据</p>
+        <button onclick="showDataLayer()">显示 dataLayer</button>
+        <button onclick="clearConsole()">清空控制台</button>
+        <div id="console-output"></div>
+    </div>
+    
+    <script>
+        // 控制台输出函数
+        function logToConsole(message, type = 'info') {
+            const console_output = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<span style="color: #666;">[${timestamp}]</span> <span style="color: ${type === 'error' ? 'red' : type === 'success' ? 'green' : 'blue'};">${message}</span>`;
+            console_output.appendChild(logEntry);
+            console_output.scrollTop = console_output.scrollHeight;
+        }
+        
+        // 监控 dataLayer 变化
+        const originalPush = window.dataLayer.push;
+        window.dataLayer.push = function() {
+            const args = Array.prototype.slice.call(arguments);
+            logToConsole(`dataLayer.push: ${JSON.stringify(args[0], null, 2)}`, 'success');
+            return originalPush.apply(window.dataLayer, arguments);
+        };
+        
+        // 基础事件测试
+        function testPageView() {
+            gtag('event', 'page_view', {
+                page_title: 'GA测试页面',
+                page_location: window.location.href,
+                custom_parameter: 'test_value'
+            });
+            document.getElementById('basic-status').innerHTML = '✅ 页面浏览事件已发送';
+            document.getElementById('basic-status').className = 'status success';
+            logToConsole('页面浏览事件已发送', 'success');
+        }
+        
+        function testCustomEvent() {
+            gtag('event', 'custom_test_event', {
+                event_category: 'test',
+                event_label: 'manual_test',
+                value: 1,
+                custom_dimension_1: 'test_dimension'
+            });
+            document.getElementById('basic-status').innerHTML = '✅ 自定义事件已发送';
+            document.getElementById('basic-status').className = 'status success';
+            logToConsole('自定义事件已发送', 'success');
+        }
+        
+        function testUserEngagement() {
+            gtag('event', 'user_engagement', {
+                engagement_time_msec: 5000
+            });
+            document.getElementById('basic-status').innerHTML = '✅ 用户参与度事件已发送';
+            document.getElementById('basic-status').className = 'status success';
+            logToConsole('用户参与度事件已发送', 'success');
+        }
+        
+        // 电商事件测试
+        function testViewItem() {
+            gtag('event', 'view_item', {
+                currency: 'USD',
+                value: 299.99,
+                items: [{
+                    item_id: 'drone_x30',
+                    item_name: 'Partdro X30 Drone',
+                    category: 'Drones',
+                    quantity: 1,
+                    price: 299.99
+                }]
+            });
+            document.getElementById('ecommerce-status').innerHTML = '✅ 查看商品事件已发送';
+            document.getElementById('ecommerce-status').className = 'status success';
+            logToConsole('查看商品事件已发送', 'success');
+        }
+        
+        function testAddToCart() {
+            gtag('event', 'add_to_cart', {
+                currency: 'USD',
+                value: 299.99,
+                items: [{
+                    item_id: 'drone_x30',
+                    item_name: 'Partdro X30 Drone',
+                    category: 'Drones',
+                    quantity: 1,
+                    price: 299.99
+                }]
+            });
+            document.getElementById('ecommerce-status').innerHTML = '✅ 添加到购物车事件已发送';
+            document.getElementById('ecommerce-status').className = 'status success';
+            logToConsole('添加到购物车事件已发送', 'success');
+        }
+        
+        function testPurchase() {
+            gtag('event', 'purchase', {
+                transaction_id: 'test_' + Date.now(),
+                value: 299.99,
+                currency: 'USD',
+                items: [{
+                    item_id: 'drone_x30',
+                    item_name: 'Partdro X30 Drone',
+                    category: 'Drones',
+                    quantity: 1,
+                    price: 299.99
+                }]
+            });
+            document.getElementById('ecommerce-status').innerHTML = '✅ 购买事件已发送';
+            document.getElementById('ecommerce-status').className = 'status success';
+            logToConsole('购买事件已发送', 'success');
+        }
+        
+        // 用户行为测试
+        function testScroll() {
+            gtag('event', 'scroll', {
+                percent_scrolled: 90
+            });
+            document.getElementById('behavior-status').innerHTML = '✅ 滚动事件已发送';
+            document.getElementById('behavior-status').className = 'status success';
+            logToConsole('滚动事件已发送', 'success');
+        }
+        
+        function testClick() {
+            gtag('event', 'click', {
+                link_text: '测试链接',
+                link_url: '#test'
+            });
+            document.getElementById('behavior-status').innerHTML = '✅ 点击事件已发送';
+            document.getElementById('behavior-status').className = 'status success';
+            logToConsole('点击事件已发送', 'success');
+        }
+        
+        function testFormSubmit() {
+            gtag('event', 'form_submit', {
+                form_id: 'test_form',
+                form_name: '测试表单'
+            });
+            document.getElementById('behavior-status').innerHTML = '✅ 表单提交事件已发送';
+            document.getElementById('behavior-status').className = 'status success';
+            logToConsole('表单提交事件已发送', 'success');
+        }
+        
+        // 数据层监控
+        function showDataLayer() {
+            logToConsole(`当前 dataLayer 内容: ${JSON.stringify(window.dataLayer, null, 2)}`, 'info');
+        }
+        
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '';
+        }
+        
+        // 页面加载时自动发送页面浏览事件
+        window.addEventListener('load', function() {
+            logToConsole('页面加载完成，GA 初始化成功', 'success');
+            logToConsole(`GA 测量 ID: G-L1VNPLE486`, 'info');
+            logToConsole(`GTM 容器 ID: GTM-MJPSTR`, 'info');
+        });
+        
+        // 监听 GA 错误
+        window.addEventListener('error', function(e) {
+            logToConsole(`错误: ${e.message}`, 'error');
+        });
+    </script>
+</body>
+</html>
