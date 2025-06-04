@@ -4,12 +4,41 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { products } from '../data/products'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
 const productId = computed(() => route.params.id as string)
 const product = computed(() => products.find(p => p.id === productId.value))
+
+// Computed properties for localized product data
+const localizedProductName = computed(() => {
+  if (!product.value) return ''
+  return typeof product.value.name === 'string' 
+    ? product.value.name 
+    : product.value.name[locale.value] || product.value.name.en || product.value.name.zh
+})
+
+const localizedProductDescription = computed(() => {
+  if (!product.value) return ''
+  return typeof product.value.description === 'string' 
+    ? product.value.description 
+    : product.value.description[locale.value] || product.value.description.en || product.value.description.zh
+})
+
+const localizedProductFeatures = computed(() => {
+  if (!product.value) return []
+  return Array.isArray(product.value.features) 
+    ? product.value.features 
+    : product.value.features[locale.value] || product.value.features.en || product.value.features.zh || []
+})
+
+const localizedProductSpecifications = computed(() => {
+  if (!product.value || !product.value.specifications) return {}
+  return typeof product.value.specifications === 'object' && !Array.isArray(product.value.specifications)
+    ? (product.value.specifications[locale.value] || product.value.specifications.en || product.value.specifications.zh || product.value.specifications)
+    : product.value.specifications
+})
 
 const activeTab = ref('description')
 const activeImageIndex = ref(0)
@@ -49,7 +78,7 @@ onMounted(() => {
         <!-- Product Images -->
         <div class="product-images">
           <div class="main-image">
-            <img :src="product.images[activeImageIndex]" :alt="product.name" />
+            <img :src="product.images[activeImageIndex]" :alt="localizedProductName" />
           </div>
           <div class="image-thumbnails" v-if="product.images.length > 1">
             <div 
@@ -59,7 +88,7 @@ onMounted(() => {
               :class="{ 'active': activeImageIndex === index }"
               @click="setActiveImage(index)"
             >
-              <img :src="image" :alt="`${product.name} - ${index + 1}`" />
+              <img :src="image" :alt="`${localizedProductName} - ${index + 1}`" />
             </div>
           </div>
         </div>
@@ -67,7 +96,7 @@ onMounted(() => {
         <!-- Product Info -->
         <div class="product-info">
           <div class="product-brand">{{ product.brand }}</div>
-          <h1 class="product-title">{{ product.name }}</h1>
+          <h1 class="product-title">{{ localizedProductName }}</h1>
           
           <div class="product-meta">
             <div class="product-rating">
@@ -77,13 +106,13 @@ onMounted(() => {
           </div>
           
           <div class="product-short-description">
-            {{ product.description }}
+            {{ localizedProductDescription }}
           </div>
           
           <div class="product-features">
             <h3>{{ t('product.keyFeatures') }}</h3>
             <ul>
-              <li v-for="(feature, index) in product.features.slice(0, 4)" :key="index">
+              <li v-for="(feature, index) in localizedProductFeatures.slice(0, 4)" :key="index">
                 {{ feature }}
               </li>
             </ul>
@@ -119,11 +148,11 @@ onMounted(() => {
         <div class="tab-content">
           <!-- Description Tab -->
           <div v-if="activeTab === 'description'" class="tab-pane description-tab">
-            <p>{{ product.description }}</p>
+            <p>{{ localizedProductDescription }}</p>
             <div class="features-list">
               <h3>{{ t('product.features') }}</h3>
               <ul>
-                <li v-for="(feature, index) in product.features" :key="index">
+                <li v-for="(feature, index) in localizedProductFeatures" :key="index">
                   {{ feature }}
                 </li>
               </ul>
@@ -134,7 +163,7 @@ onMounted(() => {
           <div v-if="activeTab === 'specifications'" class="tab-pane specifications-tab">
             <table class="specs-table">
               <tbody>
-                <tr v-for="(value, key) in product.specifications" :key="key">
+                <tr v-for="(value, key) in localizedProductSpecifications" :key="key">
                   <th>{{ key }}</th>
                   <td>{{ value }}</td>
                 </tr>

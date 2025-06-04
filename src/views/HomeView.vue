@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { categories } from '../data/categories'
@@ -12,6 +12,27 @@ const router = useRouter()
 const featuredProducts = ref(products.filter(product => product.isFeatured))
 const newProducts = ref(products.filter(product => product.isNew))
 
+// Banner carousel functionality
+const bannerImages = [
+  '/images/m16_banner.png',
+  '/images/CompanyProfile_p1_img1.jpeg'
+]
+const currentBannerIndex = ref(0)
+let bannerInterval: NodeJS.Timeout | null = null
+
+const nextBanner = () => {
+  currentBannerIndex.value = (currentBannerIndex.value + 1) % bannerImages.length
+}
+
+onMounted(() => {
+  bannerInterval = setInterval(nextBanner, 3000)
+})
+
+onUnmounted(() => {
+  if (bannerInterval) {
+    clearInterval(bannerInterval)
+  }
+})
 
 </script>
 
@@ -19,6 +40,15 @@ const newProducts = ref(products.filter(product => product.isNew))
   <div class="home">
     <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-carousel">
+        <div 
+          v-for="(image, index) in bannerImages" 
+          :key="index"
+          class="hero-slide"
+          :class="{ active: index === currentBannerIndex }"
+          :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${image}')` }"
+        ></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <h1>{{ t('welcome') }}</h1>
@@ -34,6 +64,15 @@ const newProducts = ref(products.filter(product => product.isNew))
             </button>
           </div>
         </div>
+      </div>
+      <div class="carousel-indicators">
+        <button 
+          v-for="(image, index) in bannerImages" 
+          :key="index"
+          class="indicator"
+          :class="{ active: index === currentBannerIndex }"
+          @click="currentBannerIndex = index"
+        ></button>
       </div>
     </section>
     
@@ -105,14 +144,80 @@ const newProducts = ref(products.filter(product => product.isNew))
 
 <style lang="scss" scoped>
 .hero {
+  position: relative;
   height: 70vh;
   min-height: 500px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/CompanyProfile_p1_img1.jpeg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   color: white;
+  overflow: hidden;
+  
+  .hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      
+      &.active {
+        opacity: 1;
+      }
+      
+      // Special styling for m16_banner to zoom out
+      &:nth-child(1) {
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-color: #f8f9fa;
+        background-position: center center;
+      }
+    }
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &.active {
+        background: white;
+        border-color: white;
+      }
+      
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
   
   .hero-content {
     max-width: 600px;

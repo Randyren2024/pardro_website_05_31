@@ -27,8 +27,9 @@ export const products: Product[] = [
       'Charging Time': '90 minutes'
     },
     images: [
-      'https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/320375/pexels-photo-320375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      '/images/m16_01.jpg',
+      '/images/m16_02.jpg',
+      '/images/m16_03.jpg'
     ],
     rating: 4.8,
     reviewCount: 234,
@@ -69,6 +70,189 @@ export const products: Product[] = [
     reviewCount: 182,
     stock: 28,
     brand: 'SkyTech',
+    isNew: true
+  },
+  {
+    id: 'm16-hexacopter',
+    name: {
+      zh: 'M16六旋翼无人机',
+      en: 'M16 Hexacopter Drone',
+      es: 'Dron Hexacóptero M16',
+      ru: 'Гексакоптер M16',
+      ja: 'M16ヘキサコプタードローン',
+      de: 'M16 Hexacopter-Drohne',
+      fr: 'Drone Hexacoptère M16',
+      th: 'โดรนเฮกซาคอปเตอร์ M16'
+    },
+    category: 'drones',
+    price: 89999,
+    description: {
+      zh: '安徽皓翔航空科技有限公司生产的M16六旋翼无人机，具有优异的稳定性和可靠性，适用于各种专业应用场景。',
+      en: 'The M16 hexacopter drone produced by Anhui Haoxiang Aviation Technology Co., Ltd. features excellent stability and reliability, suitable for various professional application scenarios.',
+      es: 'El dron hexacóptero M16 producido por Anhui Haoxiang Aviation Technology Co., Ltd. presenta excelente estabilidad y confiabilidad, adecuado para varios escenarios de aplicación profesional.',
+      ru: 'Гексакоптер M16, произведенный компанией Anhui Haoxiang Aviation Technology Co., Ltd., отличается превосходной стабильностью и надежностью, подходит для различных профессиональных сценариев применения.',
+      ja: '安徽皓翔航空科技有限公司が製造するM16ヘキサコプタードローンは、優れた安定性と信頼性を備え、さまざまな専門的な応用シナリオに適しています。',
+      de: 'Die von Anhui Haoxiang Aviation Technology Co., Ltd. hergestellte M16-Hexacopter-Drohne zeichnet sich durch hervorragende Stabilität und Zuverlässigkeit aus und eignet sich für verschiedene professionelle Anwendungsszenarien.',
+      fr: 'Le drone hexacoptère M16 produit par Anhui Haoxiang Aviation Technology Co., Ltd. présente une excellente stabilité et fiabilité, adapté à divers scénarios d\'application professionnelle.',
+      th: 'โดรนเฮกซาคอปเตอร์ M16 ที่ผลิตโดย Anhui Haoxiang Aviation Technology Co., Ltd. มีความเสถียรและความน่าเชื่อถือที่ยอดเยี่ยม เหมาะสำหรับสถานการณ์การใช้งานระดับมืออาชีพต่างๆ'
+    },
+    features: {
+      zh: [
+        '六旋翼设计，稳定性更强',
+        '专业级飞行控制系统',
+        '高精度GPS定位',
+        '模块化载荷设计',
+        '工业级可靠性',
+        '多种飞行模式'
+      ],
+      en: [
+        'Hexacopter design for enhanced stability',
+        'Professional-grade flight control system',
+        'High-precision GPS positioning',
+        'Modular payload design',
+        'Industrial-grade reliability',
+        'Multiple flight modes'
+      ],
+      es: [
+        'Diseño hexacóptero para mayor estabilidad',
+        'Sistema de control de vuelo de grado profesional',
+        'Posicionamiento GPS de alta precisión',
+        'Diseño de carga útil modular',
+        'Confiabilidad de grado industrial',
+        'Múltiples modos de vuelo'
+      ],
+      ru: [
+        'Дизайн гексакоптера для повышенной стабильности',
+        'Профессиональная система управления полетом',
+        'Высокоточное GPS-позиционирование',
+        'Модульная конструкция полезной нагрузки',
+        'Промышленная надежность',
+        'Множественные режимы полета'
+      ],
+      ja: [
+        '安定性を向上させるヘキサコプター設計',
+        'プロフェッショナルグレードの飛行制御システム',
+        '高精度GPS測位',
+        'モジュラーペイロード設計',
+        '産業グレードの信頼性',
+        '複数の飛行モード'
+      ],
+      de: [
+        'Hexacopter-Design für verbesserte Stabilität',
+        'Professionelles Flugkontrollsystem',
+        'Hochpräzise GPS-Positionierung',
+        'Modulares Nutzlast-Design',
+        'Industrielle Zuverlässigkeit',
+        'Mehrere Flugmodi'
+      ],
+      fr: [
+        'Conception hexacoptère pour une stabilité améliorée',
+        'Système de contrôle de vol de qualité professionnelle',
+        'Positionnement GPS haute précision',
+        'Conception de charge utile modulaire',
+        'Fiabilité de qualité industrielle',
+        'Modes de vol multiples'
+      ],
+      th: [
+        'การออกแบบเฮกซาคอปเตอร์เพื่อความเสถียรที่เพิ่มขึ้น',
+        'ระบบควบคุมการบินระดับมืออาชีพ',
+        'การระบุตำแหน่ง GPS ความแม่นยำสูง',
+        'การออกแบบน้ำหนักบรรทุกแบบโมดูลาร์',
+        'ความน่าเชื่อถือระดับอุตสาหกรรม',
+        'โหมดการบินหลายแบบ'
+      ]
+    },
+    specifications: {
+      zh: {
+        '轴距': '1600mm',
+        '起飞重量': '≤25kg',
+        '载荷重量': '≤8kg',
+        '续航时间': '≤45min',
+        '飞行高度': '≤500m',
+        '抗风等级': '≤6级',
+        '工作温度': '-10°C~+50°C',
+        '定位精度': '±1m'
+      },
+      en: {
+        'Wheelbase': '1600mm',
+        'Takeoff Weight': '≤25kg',
+        'Payload Weight': '≤8kg',
+        'Flight Time': '≤45min',
+        'Flight Altitude': '≤500m',
+        'Wind Resistance': '≤Level 6',
+        'Operating Temperature': '-10°C~+50°C',
+        'Positioning Accuracy': '±1m'
+      },
+      es: {
+        'Distancia entre ejes': '1600mm',
+        'Peso de despegue': '≤25kg',
+        'Peso de carga útil': '≤8kg',
+        'Tiempo de vuelo': '≤45min',
+        'Altitud de vuelo': '≤500m',
+        'Resistencia al viento': '≤Nivel 6',
+        'Temperatura de funcionamiento': '-10°C~+50°C',
+        'Precisión de posicionamiento': '±1m'
+      },
+      ru: {
+        'Колесная база': '1600mm',
+        'Взлетный вес': '≤25kg',
+        'Вес полезной нагрузки': '≤8kg',
+        'Время полета': '≤45min',
+        'Высота полета': '≤500m',
+        'Ветроустойчивость': '≤Уровень 6',
+        'Рабочая температура': '-10°C~+50°C',
+        'Точность позиционирования': '±1m'
+      },
+      ja: {
+        'ホイールベース': '1600mm',
+        '離陸重量': '≤25kg',
+        'ペイロード重量': '≤8kg',
+        '飛行時間': '≤45min',
+        '飛行高度': '≤500m',
+        '耐風性': '≤レベル6',
+        '動作温度': '-10°C~+50°C',
+        '測位精度': '±1m'
+      },
+      de: {
+        'Radstand': '1600mm',
+        'Startgewicht': '≤25kg',
+        'Nutzlastgewicht': '≤8kg',
+        'Flugzeit': '≤45min',
+        'Flughöhe': '≤500m',
+        'Windwiderstand': '≤Stufe 6',
+        'Betriebstemperatur': '-10°C~+50°C',
+        'Positionierungsgenauigkeit': '±1m'
+      },
+      fr: {
+        'Empattement': '1600mm',
+        'Poids au décollage': '≤25kg',
+        'Poids de charge utile': '≤8kg',
+        'Temps de vol': '≤45min',
+        'Altitude de vol': '≤500m',
+        'Résistance au vent': '≤Niveau 6',
+        'Température de fonctionnement': '-10°C~+50°C',
+        'Précision de positionnement': '±1m'
+      },
+      th: {
+        'ฐานล้อ': '1600mm',
+        'น้ำหนักขณะขึ้น': '≤25kg',
+        'น้ำหนักบรรทุก': '≤8kg',
+        'เวลาบิน': '≤45min',
+        'ความสูงบิน': '≤500m',
+        'ความต้านทานลม': '≤ระดับ 6',
+        'อุณหภูมิการทำงาน': '-10°C~+50°C',
+        'ความแม่นยำในการระบุตำแหน่ง': '±1m'
+      }
+    },
+    images: [
+      '/images/m16_01.jpg',
+      '/images/m16_02.jpg',
+      '/images/m16_03.jpg'
+    ],
+    brand: '皓翔航空',
+    rating: 4.8,
+    reviewCount: 45,
+    inStock: true,
     isNew: true
   },
   

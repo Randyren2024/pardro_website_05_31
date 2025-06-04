@@ -28,6 +28,7 @@ export default {
     reviews: 'Reviews',
     relatedProducts: 'Related Products',
     inquire: 'Inquire Now',
+    keyFeatures: 'Key Features',
     new: 'New',
     sale: 'Sale',
     quickView: 'Quick View',
