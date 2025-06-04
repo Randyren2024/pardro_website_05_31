@@ -23,7 +23,7 @@ function inquireProduct() {
     </div>
     
     <router-link :to="`/product/${product.id}`" class="product-image">
-      <img :src="product.images[0]" :alt="product.name" />
+      <img :src="product.images[0]" :alt="typeof product.name === 'string' ? product.name : ''" />
       <div class="image-overlay">
         <button class="quick-view-btn">{{ t('product.quickView') }}</button>
       </div>

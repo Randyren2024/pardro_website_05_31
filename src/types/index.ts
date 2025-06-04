@@ -1,12 +1,12 @@
 export interface Product {
   id: string
-  name: string
+  name: string | Record<string, string>
   category: string
   price: number
   discountedPrice?: number
-  description: string
-  features: string[]
-  specifications: Record<string, string>
+  description: string | Record<string, string>
+  features: string[] | Record<string, string[]>
+  specifications: Record<string, string> | Record<string, Record<string, string>>
   images: string[]
   rating: number
   reviewCount: number

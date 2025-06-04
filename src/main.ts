@@ -10,8 +10,9 @@ import 'ant-design-vue/dist/reset.css'
 // Check for language parameter in URL
 const urlParams = new URLSearchParams(window.location.search)
 const langParam = urlParams.get('lang')
-if (langParam) {
-  i18n.global.locale.value = langParam
+const supportedLocales = ['en', 'es', 'ru', 'ja', 'zh', 'de', 'fr', 'th'] as const
+if (langParam && supportedLocales.includes(langParam as any)) {
+  i18n.global.locale.value = langParam as typeof supportedLocales[number]
   localStorage.setItem('language', langParam)
 }
 

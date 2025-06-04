@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { products } from '../data/products'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -14,30 +14,42 @@ const product = computed(() => products.find(p => p.id === productId.value))
 // Computed properties for localized product data
 const localizedProductName = computed(() => {
   if (!product.value) return ''
-  return typeof product.value.name === 'string' 
-    ? product.value.name 
-    : product.value.name[locale.value] || product.value.name.en || product.value.name.zh
+  const name = product.value.name
+  if (typeof name === 'string') {
+    return name
+  }
+  // If name is a multi-language object, return empty string for now
+  return ''
 })
 
 const localizedProductDescription = computed(() => {
   if (!product.value) return ''
-  return typeof product.value.description === 'string' 
-    ? product.value.description 
-    : product.value.description[locale.value] || product.value.description.en || product.value.description.zh
+  const description = product.value.description
+  if (typeof description === 'string') {
+    return description
+  }
+  // If description is a multi-language object, return empty string for now
+  return ''
 })
 
 const localizedProductFeatures = computed(() => {
   if (!product.value) return []
-  return Array.isArray(product.value.features) 
-    ? product.value.features 
-    : product.value.features[locale.value] || product.value.features.en || product.value.features.zh || []
+  const features = product.value.features
+  if (Array.isArray(features)) {
+    return features
+  }
+  // If features is a multi-language object, return empty array for now
+  return []
 })
 
 const localizedProductSpecifications = computed(() => {
   if (!product.value || !product.value.specifications) return {}
-  return typeof product.value.specifications === 'object' && !Array.isArray(product.value.specifications)
-    ? (product.value.specifications[locale.value] || product.value.specifications.en || product.value.specifications.zh || product.value.specifications)
-    : product.value.specifications
+  const specs = product.value.specifications
+  // Check if it's a simple Record<string, string> or nested multi-language object
+  if (typeof specs === 'object' && specs !== null) {
+    return specs
+  }
+  return {}
 })
 
 const activeTab = ref('description')
@@ -178,7 +190,7 @@ onMounted(() => {
         <h2>{{ t('product.relatedProducts') }}</h2>
         <div class="products-grid">
           <div v-for="relatedProduct in relatedProducts" :key="relatedProduct.id" class="related-product">
-            <img :src="relatedProduct.images[0]" :alt="relatedProduct.name" />
+            <img :src="relatedProduct.images[0]" :alt="typeof relatedProduct.name === 'string' ? relatedProduct.name : ''" />
             <h3>{{ relatedProduct.name }}</h3>
             <button class="inquire-btn" @click="inquireProduct">Inquire Now</button>
           </div>

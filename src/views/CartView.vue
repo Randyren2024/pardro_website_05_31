@@ -43,7 +43,7 @@ function proceedToCheckout() {
         <div class="cart-items">
           <div v-for="item in cartItems" :key="item.id" class="cart-item">
             <div class="item-image">
-              <img :src="item.images[0]" :alt="item.name" />
+              <img :src="item.images[0]" :alt="typeof item.name === 'string' ? item.name : ''" />
             </div>
             
             <div class="item-details">

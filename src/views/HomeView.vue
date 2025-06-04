@@ -42,11 +42,11 @@ onUnmounted(() => {
     <section class="hero">
       <div class="hero-carousel">
         <div 
-          v-for="(image, index) in bannerImages" 
+          v-for="(_, index) in bannerImages" 
           :key="index"
           class="hero-slide"
           :class="{ active: index === currentBannerIndex }"
-          :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${image}')` }"
+          :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${bannerImages[index]}')` }"
         ></div>
       </div>
       <div class="container">
@@ -67,7 +67,7 @@ onUnmounted(() => {
       </div>
       <div class="carousel-indicators">
         <button 
-          v-for="(image, index) in bannerImages" 
+          v-for="(_, index) in bannerImages" 
           :key="index"
           class="indicator"
           :class="{ active: index === currentBannerIndex }"

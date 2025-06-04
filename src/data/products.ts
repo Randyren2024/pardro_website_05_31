@@ -252,7 +252,7 @@ export const products: Product[] = [
     brand: '皓翔航空',
     rating: 4.8,
     reviewCount: 45,
-    inStock: true,
+    stock: 10,
     isNew: true
   },
   

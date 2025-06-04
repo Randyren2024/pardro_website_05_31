@@ -20,11 +20,15 @@ const filteredProducts = computed(() => {
   
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    result = result.filter(product => 
-      product.name.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query) ||
-      product.brand.toLowerCase().includes(query)
-    )
+    result = result.filter(product => {
+      const name = typeof product.name === 'string' ? product.name : ''
+      const description = typeof product.description === 'string' ? product.description : ''
+      const brand = typeof product.brand === 'string' ? product.brand : ''
+      
+      return name.toLowerCase().includes(query) ||
+             description.toLowerCase().includes(query) ||
+             brand.toLowerCase().includes(query)
+    })
   }
   
   if (sortBy.value) {
