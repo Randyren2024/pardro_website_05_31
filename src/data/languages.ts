@@ -22,11 +22,6 @@ export const languages: SupportedLanguage[] = [
     flag: '🇯🇵'
   },
   {
-    code: 'zh',
-    name: '中文',
-    flag: '🇨🇳'
-  },
-  {
     code: 'de',
     name: 'Deutsch',
     flag: '🇩🇪'

@@ -6,11 +6,10 @@ import ja from './locales/ja'
 import de from './locales/de'
 import fr from './locales/fr'
 import th from './locales/th'
-import zh from './locales/zh'
 
 const getBrowserLanguage = () => {
   const browserLanguage = navigator.language.split('-')[0];
-  const supportedLocales = ['en', 'es', 'ru', 'ja', 'de', 'fr', 'th', 'zh'];
+  const supportedLocales = ['en', 'es', 'ru', 'ja', 'de', 'fr', 'th'];
   if (supportedLocales.includes(browserLanguage)) {
     return browserLanguage;
   }
@@ -28,8 +27,7 @@ const i18n = createI18n({
     ja,
     de,
     fr,
-    th,
-    zh
+    th
   }
 })
 
