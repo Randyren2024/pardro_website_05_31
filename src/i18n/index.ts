@@ -10,6 +10,9 @@ import uk from './locales/uk.json'
 import { getLocaleFromSubdomain, getSupportedLocales } from '../utils/subdomain'
 
 const getBrowserLanguage = () => {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined' || typeof navigator.language === 'undefined') {
+    return 'en'; // Fallback to English if browser/navigator language is not available
+  }
   const browserLanguage = navigator.language.split('-')[0];
   const supportedLocales = getSupportedLocales();
   if (supportedLocales.includes(browserLanguage as any)) {
@@ -20,11 +23,19 @@ const getBrowserLanguage = () => {
 
 // 优先使用子域名语言，其次是浏览器语言
 const getInitialLocale = () => {
-  const subdomainLocale = getLocaleFromSubdomain()
-  if (subdomainLocale !== 'en' || window.location.hostname.startsWith('www.') || window.location.hostname === 'partdro.com') {
-    return subdomainLocale
+  if (typeof window === 'undefined') {
+    // In a Worker environment, we can't safely access window.location or navigator.
+    // getLocaleFromSubdomain() already returns 'en' when window is undefined.
+    // For the main domain (partdro.com) or www.partdro.com, defaulting to 'en' is correct.
+    return 'en';
   }
-  return getBrowserLanguage()
+
+  const subdomainLocale = getLocaleFromSubdomain();
+  // If a language is specified by subdomain (and it's not 'en'), or if it's explicitly www (which should be 'en'), or the main domain (which should be 'en')
+  if (subdomainLocale !== 'en' || window.location.hostname.startsWith('www.') || window.location.hostname === 'partdro.com') {
+    return subdomainLocale;
+  }
+  return getBrowserLanguage();
 }
 
 const i18n = createI18n({
