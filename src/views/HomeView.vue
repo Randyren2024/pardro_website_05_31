@@ -143,7 +143,6 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "sass:color";
 .hero {
   position: relative;
   height: 70vh;

@@ -50,7 +50,6 @@ const { t } = useI18n()
 </template>
 
 <style lang="scss" scoped>
-@use "sass:color";
 .footer {
   background-color: var(--primary-dark);
   color: white;
