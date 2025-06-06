@@ -4,7 +4,7 @@ import Antd from 'ant-design-vue'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
-import { getLocaleFromSubdomain, getSupportedLocales, isCorrectSubdomain, generateLanguageUrl } from './utils/subdomain'
+import { getLocaleFromSubdomain, getSupportedLocales } from './utils/subdomain'
 import './style.css'
 import 'ant-design-vue/dist/reset.css'
 

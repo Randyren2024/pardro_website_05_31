@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { languages } from '../../data/languages'
-import { generateLanguageUrl, getLocaleFromSubdomain, type SupportedLocale } from '../../utils/subdomain'
+import { generateLanguageUrl, type SupportedLocale } from '../../utils/subdomain'
 
 const { locale } = useI18n()
 const dropdownOpen = ref(false)
