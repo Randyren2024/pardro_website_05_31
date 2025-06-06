@@ -8,21 +8,23 @@ const { locale } = useI18n()
 const dropdownOpen = ref(false)
 
 function changeLanguage(code: string) {
-  dropdownOpen.value = false
-  localStorage.setItem('language', code)
-  
-  // 检查是否在开发环境
-  const hostname = window.location.hostname
-  if (hostname === 'localhost' || hostname.includes('127.0.0.1')) {
-    // 开发环境：使用URL参数
-    const currentPath = window.location.pathname
-    const newUrl = `${window.location.origin}${currentPath}?lang=${code}`
-    window.location.href = newUrl
-  } else {
-    // 生产环境：重定向到对应的子域名
-    const currentPath = window.location.pathname + window.location.search
-    const newUrl = generateLanguageUrl(code as SupportedLocale, currentPath)
-    window.location.href = newUrl
+  if (typeof window !== 'undefined') {
+    dropdownOpen.value = false
+    localStorage.setItem('language', code)
+    
+    // 检查是否在开发环境
+    const hostname = window.location.hostname
+    if (hostname === 'localhost' || hostname.includes('127.0.0.1')) {
+      // 开发环境：使用URL参数
+      const currentPath = window.location.pathname
+      const newUrl = `${window.location.origin}${currentPath}?lang=${code}`
+      window.location.href = newUrl
+    } else {
+      // 生产环境：重定向到对应的子域名
+      const currentPath = window.location.pathname + window.location.search
+      const newUrl = generateLanguageUrl(code as SupportedLocale, currentPath)
+      window.location.href = newUrl
+    }
   }
 }
 

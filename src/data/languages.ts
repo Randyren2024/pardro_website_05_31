@@ -35,5 +35,10 @@ export const languages: SupportedLanguage[] = [
     code: 'th',
     name: 'ไทย',
     flag: '🇹🇭'
+  },
+  {
+    code: 'uk',
+    name: 'Українська',
+    flag: '🇺🇦'
   }
 ]

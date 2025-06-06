@@ -10,10 +10,12 @@ function toggleTheme() {
 }
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme')
-  isDark.value = savedTheme === 'dark' || 
-    (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  document.documentElement.classList.toggle('dark', isDark.value)
+  if (typeof window !== 'undefined') {
+    const savedTheme = localStorage.getItem('theme')
+    isDark.value = savedTheme === 'dark' || 
+      (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.classList.toggle('dark', isDark.value)
+  }
 })
 </script>
 
