@@ -131,7 +131,7 @@ onUnmounted(() => {
       <div class="container">
         <div class="newsletter-content">
           <h2>{{ t('stayUpdated') }}</h2>
-          <p>Subscribe to our newsletter for the latest product updates and exclusive offers.</p>
+          <p>{{ t('newsletter.subscribeMessage') }}</p>
           <div class="newsletter-form">
             <input type="email" :placeholder="t('emailAddress')" />
             <button>{{ t('subscribe') }}</button>

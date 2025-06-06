@@ -32,11 +32,11 @@ const { t } = useI18n()
       </div>
       
       <div class="footer-section newsletter">
-        <h3>Newsletter</h3>
-        <p>Subscribe to receive updates on new products and special promotions.</p>
+        <h3>{{ t('newsletter.title') }}</h3>
+        <p>{{ t('newsletter.subscribeMessage') }}</p>
         <div class="newsletter-form">
-          <input type="email" placeholder="Your email" />
-          <button>Subscribe</button>
+          <input type="email" :placeholder="t('emailAddress')" />
+          <button>{{ t('newsletter.subscribeButtonText') }}</button>
         </div>
       </div>
     </div>

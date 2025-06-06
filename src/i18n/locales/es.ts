@@ -1,4 +1,9 @@
 export default {
+  newsletter: {
+    title: 'Boletín',
+    subscribeMessage: 'Suscríbase a nuestro boletín para recibir las últimas actualizaciones de productos y ofertas exclusivas.',
+    subscribeButtonText: 'Suscribirse'
+  },
   app: {
     title: 'Partdro - Robótica Avanzada y Drones',
     description: 'Descubra tecnología de vanguardia con nuestra selección premium de drones, robots humanoides y robots cuadrúpedos.'

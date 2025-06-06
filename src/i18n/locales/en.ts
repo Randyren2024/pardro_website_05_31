@@ -1,4 +1,9 @@
 export default {
+  newsletter: {
+    title: 'Newsletter',
+    subscribeMessage: 'Subscribe to our newsletter for the latest product updates and exclusive offers.',
+    subscribeButtonText: 'Subscribe'
+  },
   app: {
     title: 'Partdro - Advanced Robotics & Drones',
     description: 'Discover cutting-edge technology with our premium selection of drones, humanoid robots, and quadruped robots.'

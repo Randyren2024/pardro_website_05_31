@@ -1,4 +1,9 @@
 export default {
+  newsletter: {
+    title: 'ニュースレター',
+    subscribeMessage: 'ニュースレターを購読して、最新の製品アップデートや限定オファーを入手してください。',
+    subscribeButtonText: '購読する'
+  },
   app: {
     title: 'Partdro - 高度なロボティクスとドローン',
     description: 'ドローン、ヒューマノイドロボット、四足歩行ロボットのプレミアムセレクションで最先端技術を発見してください。'
