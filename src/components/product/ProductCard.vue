@@ -4,7 +4,7 @@ import type { Product } from '../../types'
 
 const { t } = useI18n()
 
-const props = defineProps<{
+const { product } = defineProps<{
   product: Product
 }>()
 
