@@ -1,12 +1,10 @@
 import { createI18n } from 'vue-i18n'
 import en from './locales/en'
 import es from './locales/es'
-import ru from './locales/ru'
 import ja from './locales/ja'
 import de from './locales/de'
 import fr from './locales/fr'
 import th from './locales/th.ts'
-import uk from './locales/uk.ts'
 import { getLocaleFromSubdomain, getSupportedLocales } from '../utils/subdomain'
 
 const getBrowserLanguage = () => {
@@ -41,23 +39,19 @@ const getInitialLocale = () => {
 const messages = {
   en,
   es,
-  ru,
   ja,
   de,
   fr,
-  th,
-  uk
+  th
 }
 
 export const supportedLocales: Record<string, string> = {
   en: 'English',
   es: 'Español',
-  ru: 'Русский',
   ja: '日本語',
   de: 'Deutsch',
   fr: 'Français',
-  th: 'ไทย',
-  uk: 'Українська'
+  th: 'ไทย'
 }
 
 const i18n = createI18n({
