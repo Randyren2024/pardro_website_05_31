@@ -6,6 +6,7 @@ import ja from './locales/ja'
 import de from './locales/de'
 import fr from './locales/fr'
 import th from './locales/th'
+import uk from './locales/uk'
 import { getLocaleFromSubdomain, getSupportedLocales } from '../utils/subdomain'
 
 const getBrowserLanguage = () => {
@@ -37,7 +38,8 @@ const i18n = createI18n({
     ja,
     de,
     fr,
-    th
+    th,
+    uk
   }
 })
 

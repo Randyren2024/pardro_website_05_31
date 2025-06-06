@@ -4,13 +4,14 @@
 
 ## 支持的语言和子域名
 
-- `www.partdro.com` 或 `en.partdro.com` - 英语（默认）
+- `www.partdro.com` - 英语（默认）
 - `es.partdro.com` - 西班牙语
 - `ja.partdro.com` - 日语
 - `de.partdro.com` - 德语
 - `fr.partdro.com` - 法语
 - `ru.partdro.com` - 俄语
 - `th.partdro.com` - 泰语
+- `uk.partdro.com` - 乌克兰语
 
 ## Cloudflare Pages 配置步骤
 
@@ -20,13 +21,13 @@
 
 ```
 www.partdro.com
-en.partdro.com
 es.partdro.com
 ja.partdro.com
 de.partdro.com
 fr.partdro.com
 ru.partdro.com
 th.partdro.com
+uk.partdro.com
 ```
 
 ### 2. DNS 记录配置
@@ -35,13 +36,14 @@ th.partdro.com
 
 ```
 www    CNAME    your-project.pages.dev
-en     CNAME    your-project.pages.dev
+
 es     CNAME    your-project.pages.dev
 ja     CNAME    your-project.pages.dev
 de     CNAME    your-project.pages.dev
 fr     CNAME    your-project.pages.dev
 ru     CNAME    your-project.pages.dev
 th     CNAME    your-project.pages.dev
+uk     CNAME    your-project.pages.dev
 ```
 
 ### 3. SSL/TLS 证书
@@ -86,7 +88,7 @@ npm run dev
 
 ```
 127.0.0.1 www.partdro.local
-127.0.0.1 en.partdro.local
+
 127.0.0.1 es.partdro.local
 127.0.0.1 ja.partdro.local
 ```

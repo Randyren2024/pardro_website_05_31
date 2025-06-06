@@ -1,5 +1,5 @@
 // 子域名语言检测工具
-export const getSupportedLocales = () => ['en', 'es', 'ja', 'de', 'fr', 'ru', 'th'] as const
+export const getSupportedLocales = () => ['en', 'es', 'ja', 'de', 'fr', 'ru', 'th', 'uk'] as const
 
 export type SupportedLocale = ReturnType<typeof getSupportedLocales>[number]
 
