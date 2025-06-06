@@ -62,9 +62,7 @@ const relatedProducts = computed(() => {
 })
 
 function inquireProduct() {
-  // Here you would implement the inquiry logic
-  // For example, opening a contact form or modal
-  console.log('Inquire about product:', product.value?.name)
+  window.open('https://api.whatsapp.com/send?phone=8613362853598', '_blank');
 }
 
 function setTab(tab: string) {

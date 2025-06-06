@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, nextTick } from 'vue'
 import { createPinia } from 'pinia'
 import Antd from 'ant-design-vue'
 import App from './App.vue'
@@ -51,5 +51,32 @@ app.use(createPinia())
 app.use(router)
 app.use(i18n)
 app.use(Antd)
+
+router.afterEach(() => {
+  nextTick(() => {
+    const titleKey = 'app.title';
+    const descriptionKey = 'app.description';
+
+    // @ts-ignore
+    const translatedTitle = i18n.global.t(titleKey);
+    // @ts-ignore
+    const translatedDescription = i18n.global.t(descriptionKey);
+
+    if (translatedTitle && translatedTitle !== titleKey) {
+      document.title = translatedTitle;
+    } else {
+      document.title = 'Partdro'; // Fallback
+    }
+
+    const metaDescriptionTag = document.querySelector('meta[name="description"]');
+    if (metaDescriptionTag) {
+      if (translatedDescription && translatedDescription !== descriptionKey) {
+        metaDescriptionTag.setAttribute('content', translatedDescription);
+      } else {
+        metaDescriptionTag.setAttribute('content', 'Advanced Robotics & Drones'); // Fallback
+      }
+    }
+  });
+});
 
 app.mount('#app')

@@ -1,4 +1,8 @@
 export default {
+  app: {
+    title: 'Partdro - หุ่นยนต์ขั้นสูงและโดรน',
+    description: 'ค้นพบเทคโนโลยีล้ำสมัยด้วยโดรนหุ่นยนต์ฮิวแมนนอยด์และหุ่นยนต์สี่ขาที่เราคัดสรรมาอย่างดี'
+  },
   welcome: 'ยินดีต้อนรับ',
   search: 'ค้นหา',
   loading: 'กำลังโหลด...',
@@ -28,6 +32,7 @@ export default {
     reviews: 'รีวิว',
     relatedProducts: 'สินค้าที่เกี่ยวข้อง',
     inquire: 'สอบถามตอนนี้',
+    keyFeatures: 'คุณสมบัติหลัก',
     new: 'ใหม่',
     sale: 'ลดราคา',
     quickView: 'ดูด่วน',
@@ -41,7 +46,8 @@ export default {
       { key: 'drones', label: 'โดรน' },
       { key: 'humanoidRobots', label: 'หุ่นยนต์ฮิวแมนนอยด์' },
       { key: 'quadrupedRobots', label: 'หุ่นยนต์สี่ขา' }
-    ]
+    ],
+    account: 'บัญชีของฉัน'
   },
   categories: {
     all: 'ทุกหมวดหมู่'

@@ -1,4 +1,8 @@
 export default {
+  app: {
+    title: 'Partdro - 高度なロボティクスとドローン',
+    description: 'ドローン、ヒューマノイドロボット、四足歩行ロボットのプレミアムセレクションで最先端技術を発見してください。'
+  },
   welcome: 'ようこそ',
   search: '検索',
   loading: '読み込み中...',
@@ -28,6 +32,7 @@ export default {
     reviews: 'レビュー',
     relatedProducts: '関連商品',
     inquire: '今すぐお問い合わせ',
+    keyFeatures: '主な特徴',
     new: '新着',
     sale: 'セール',
     quickView: 'クイックビュー',
@@ -41,7 +46,8 @@ export default {
       { key: 'drones', label: 'ドローン' },
       { key: 'humanoidRobots', label: 'ヒューマノイドロボット' },
       { key: 'quadrupedRobots', label: '四足歩行ロボット' }
-    ]
+    ],
+    account: 'マイアカウント'
   },
   categories: {
     all: 'すべてのカテゴリ'

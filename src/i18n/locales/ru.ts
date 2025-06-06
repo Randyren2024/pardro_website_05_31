@@ -1,4 +1,8 @@
 export default {
+  app: {
+    title: 'Partdro - Передовая робототехника и дроны',
+    description: 'Откройте для себя передовые технологии с нашим премиальным выбором дронов, гуманоидных роботов и четвероногих роботов.'
+  },
   welcome: 'Добро пожаловать',
   search: 'Поиск',
   loading: 'Загрузка...',
@@ -28,6 +32,7 @@ export default {
     reviews: 'Отзывы',
     relatedProducts: 'Похожие товары',
     inquire: 'Запросить сейчас',
+    keyFeatures: 'Ключевые особенности',
     new: 'Новый',
     sale: 'Распродажа',
     quickView: 'Быстрый просмотр',
@@ -41,7 +46,8 @@ export default {
       { key: 'drones', label: 'Дроны' },
       { key: 'humanoidRobots', label: 'Гуманоидные роботы' },
       { key: 'quadrupedRobots', label: 'Четвероногие роботы' }
-    ]
+    ],
+    account: 'Мой аккаунт'
   },
   categories: {
     all: 'Все категории'

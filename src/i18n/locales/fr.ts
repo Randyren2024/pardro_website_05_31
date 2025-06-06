@@ -1,4 +1,8 @@
 export default {
+  app: {
+    title: 'Partdro - Robotique avancée et drones',
+    description: 'Découvrez une technologie de pointe avec notre sélection premium de drones, robots humanoïdes et robots quadrupèdes.'
+  },
   welcome: 'Bienvenue',
   search: 'Rechercher',
   loading: 'Chargement...',
@@ -28,6 +32,7 @@ export default {
     reviews: 'Avis',
     relatedProducts: 'Produits similaires',
     inquire: 'Demander maintenant',
+    keyFeatures: 'Caractéristiques Clés',
     new: 'Nouveau',
     sale: 'Promo',
     quickView: 'Aperçu rapide',
@@ -41,7 +46,8 @@ export default {
       { key: 'drones', label: 'Drones' },
       { key: 'humanoidRobots', label: 'Robots humanoïdes' },
       { key: 'quadrupedRobots', label: 'Robots quadrupèdes' }
-    ]
+    ],
+    account: 'Mon Compte'
   },
   categories: {
     all: 'Toutes les catégories'

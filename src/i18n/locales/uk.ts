@@ -1,7 +1,7 @@
 export default {
   app: {
-    title: 'Partdro - Advanced Robotics & Drones',
-    description: 'Discover cutting-edge technology with our premium selection of drones, humanoid robots, and quadruped robots.'
+    title: 'Partdro - Передова робототехніка та дрони',
+    description: 'Відкрийте для себе передові технології з нашим преміальним вибором дронів, гуманоїдних роботів та чотириногих роботів.'
   },
   welcome: 'Welcome',
   search: 'Search',

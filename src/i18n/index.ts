@@ -5,8 +5,8 @@ import ru from './locales/ru'
 import ja from './locales/ja'
 import de from './locales/de'
 import fr from './locales/fr'
-import th from './locales/th'
-import uk from './locales/uk.json'
+import th from './locales/th.ts'
+import uk from './locales/uk.ts'
 import { getLocaleFromSubdomain, getSupportedLocales } from '../utils/subdomain'
 
 const getBrowserLanguage = () => {
@@ -38,20 +38,33 @@ const getInitialLocale = () => {
   return getBrowserLanguage();
 }
 
+const messages = {
+  en,
+  es,
+  ru,
+  ja,
+  de,
+  fr,
+  th,
+  uk
+}
+
+export const supportedLocales: Record<string, string> = {
+  en: 'English',
+  es: 'Español',
+  ru: 'Русский',
+  ja: '日本語',
+  de: 'Deutsch',
+  fr: 'Français',
+  th: 'ไทย',
+  uk: 'Українська'
+}
+
 const i18n = createI18n({
   legacy: false,
   locale: getInitialLocale(),
   fallbackLocale: 'en',
-  messages: {
-    en,
-    es,
-    ru,
-    ja,
-    de,
-    fr,
-    th,
-    uk
-  }
+  messages
 })
 
 export default i18n

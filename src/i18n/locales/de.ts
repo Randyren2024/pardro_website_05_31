@@ -1,4 +1,8 @@
 export default {
+  app: {
+    title: 'Partdro - Fortschrittliche Robotik & Drohnen',
+    description: 'Entdecken Sie Spitzentechnologie mit unserer Premium-Auswahl an Drohnen, humanoiden Robotern und vierbeinigen Robotern.'
+  },
   welcome: 'Willkommen',
   search: 'Suchen',
   loading: 'Laden...',
@@ -28,6 +32,7 @@ export default {
     reviews: 'Bewertungen',
     relatedProducts: 'Verwandte Produkte',
     inquire: 'Jetzt anfragen',
+    keyFeatures: 'Hauptmerkmale',
     new: 'Neu',
     sale: 'Angebot',
     quickView: 'Schnellansicht',
@@ -41,7 +46,8 @@ export default {
       { key: 'drones', label: 'Drohnen' },
       { key: 'humanoidRobots', label: 'Humanoide Roboter' },
       { key: 'quadrupedRobots', label: 'Vierbeinige Roboter' }
-    ]
+    ],
+    account: 'Mein Konto'
   },
   categories: {
     all: 'Alle Kategorien'
