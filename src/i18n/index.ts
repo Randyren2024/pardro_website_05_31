@@ -23,7 +23,7 @@ const getBrowserLanguage = () => {
 
 // 优先使用子域名语言，其次是浏览器语言
 const getInitialLocale = () => {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || typeof window.location === 'undefined') {
     // In a Worker environment, we can't safely access window.location or navigator.
     // getLocaleFromSubdomain() already returns 'en' when window is undefined.
     // For the main domain (partdro.com) or www.partdro.com, defaulting to 'en' is correct.
@@ -32,7 +32,7 @@ const getInitialLocale = () => {
 
   const subdomainLocale = getLocaleFromSubdomain();
   // If a language is specified by subdomain (and it's not 'en'), or if it's explicitly www (which should be 'en'), or the main domain (which should be 'en')
-  if (subdomainLocale !== 'en' || window.location.hostname.startsWith('www.') || window.location.hostname === 'partdro.com') {
+  if (subdomainLocale !== 'en' || (typeof window !== 'undefined' && typeof window.location !== 'undefined' && (window.location.hostname.startsWith('www.') || window.location.hostname === 'partdro.com'))) {
     return subdomainLocale;
   }
   return getBrowserLanguage();
