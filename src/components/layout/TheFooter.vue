@@ -50,6 +50,7 @@ const { t } = useI18n()
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
 .footer {
   background-color: var(--primary-dark);
   color: white;
@@ -118,7 +119,7 @@ const { t } = useI18n()
         transition: background-color 0.2s;
         
         &:hover {
-          background-color: darken(#FF5964, 10%);
+          background-color: color.adjust(#FF5964, $lightness: -10%);
         }
       }
     }

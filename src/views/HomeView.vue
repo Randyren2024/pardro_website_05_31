@@ -143,6 +143,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
 .hero {
   position: relative;
   height: 70vh;
@@ -379,7 +380,7 @@ section {
         transition: background-color 0.2s;
         
         &:hover {
-          background-color: darken(#FF5964, 10%);
+          background-color: color.adjust(#FF5964, $lightness: -10%);
         }
       }
     }
