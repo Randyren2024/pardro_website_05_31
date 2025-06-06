@@ -1,1 +1,16 @@
+# 多语种子域名重定向规则
+# 主域名重定向到英文子域名
+https://partdro.com/* https://www.partdro.com/:splat 301!
+https://www.partdro.com/* https://www.partdro.com/:splat 200
+
+# 各语种子域名的SPA路由支持
+https://en.partdro.com/* /index.html 200
+https://es.partdro.com/* /index.html 200
+https://ja.partdro.com/* /index.html 200
+https://de.partdro.com/* /index.html 200
+https://fr.partdro.com/* /index.html 200
+https://ru.partdro.com/* /index.html 200
+https://th.partdro.com/* /index.html 200
+
+# 默认SPA路由支持（用于开发和其他情况）
 /*  /index.html  200

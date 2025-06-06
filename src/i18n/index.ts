@@ -6,19 +6,29 @@ import ja from './locales/ja'
 import de from './locales/de'
 import fr from './locales/fr'
 import th from './locales/th'
+import { getLocaleFromSubdomain, getSupportedLocales } from '../utils/subdomain'
 
 const getBrowserLanguage = () => {
   const browserLanguage = navigator.language.split('-')[0];
-  const supportedLocales = ['en', 'es', 'ru', 'ja', 'de', 'fr', 'th'];
-  if (supportedLocales.includes(browserLanguage)) {
+  const supportedLocales = getSupportedLocales();
+  if (supportedLocales.includes(browserLanguage as any)) {
     return browserLanguage;
   }
   return 'en'; // Fallback to English if browser language is not supported
 };
 
+// 优先使用子域名语言，其次是浏览器语言
+const getInitialLocale = () => {
+  const subdomainLocale = getLocaleFromSubdomain()
+  if (subdomainLocale !== 'en' || window.location.hostname.startsWith('www.') || window.location.hostname === 'partdro.com') {
+    return subdomainLocale
+  }
+  return getBrowserLanguage()
+}
+
 const i18n = createI18n({
   legacy: false,
-  locale: getBrowserLanguage(),
+  locale: getInitialLocale(),
   fallbackLocale: 'en',
   messages: {
     en,
