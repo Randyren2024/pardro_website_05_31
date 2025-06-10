@@ -19,7 +19,7 @@ const { t } = useI18n()
       <div class="footer-section">
         <h3>{{ t('footer.support') }}</h3>
         <ul>
-          <li><a href="#">{{ t('footer.contactUs') }}</a></li>
+          <li><router-link to="/contact">{{ t('footer.contactUs') }}</router-link></li>
         </ul>
       </div>
       

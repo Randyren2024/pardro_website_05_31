@@ -49,6 +49,8 @@ function navigateTo(path: string) {
           <li v-for="category in categories" :key="category.id">
             <router-link :to="`/category/${category.id}`">{{ category.name }}</router-link>
           </li>
+          <li><router-link to="/about">{{ t('footer.about') }}</router-link></li>
+          <li><router-link to="/contact">{{ t('footer.contactUs') }}</router-link></li>
         </ul>
       </nav>
 
@@ -98,6 +100,8 @@ function navigateTo(path: string) {
         <li v-for="category in categories" :key="category.id" @click="navigateTo(`/category/${category.id}`)">
           {{ category.name }}
         </li>
+        <li @click="navigateTo('/about')">{{ t('footer.about') }}</li>
+        <li @click="navigateTo('/contact')">{{ t('footer.contactUs') }}</li>
         <li @click="navigateTo('/account')">{{ t('navigation.account') }}</li>
       </ul>
     </div>

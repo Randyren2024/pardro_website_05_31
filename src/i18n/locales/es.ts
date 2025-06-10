@@ -78,5 +78,42 @@ export default {
   },
   stayUpdated: 'Mantente Actualizado',
   emailAddress: 'Tu dirección de correo electrónico',
-  subscribe: 'Suscribirse'
+  subscribe: 'Suscribirse',
+  contact: {
+    title: 'Contáctanos',
+    subtitle: 'Ponte en contacto con nuestro equipo para cualquier consulta sobre nuestros productos y servicios.',
+    info: {
+      title: 'Información de Contacto',
+      company: 'Empresa',
+      email: 'Correo Electrónico',
+      phone: 'Teléfono',
+      address: 'Dirección',
+      hours: 'Horario de Atención',
+      social: 'Síguenos'
+    },
+    form: {
+      title: 'Envíanos un Mensaje',
+      firstName: 'Nombre',
+      firstNamePlaceholder: 'Ingresa tu nombre',
+      lastName: 'Apellido',
+      lastNamePlaceholder: 'Ingresa tu apellido',
+      email: 'Correo Electrónico',
+      emailPlaceholder: 'Ingresa tu correo electrónico',
+      phone: 'Número de Teléfono',
+      phonePlaceholder: 'Ingresa tu número de teléfono',
+      company: 'Empresa',
+      companyPlaceholder: 'Ingresa el nombre de tu empresa',
+      subject: 'Asunto',
+      subjectPlaceholder: 'Ingresa el asunto del mensaje',
+      message: 'Mensaje',
+      messagePlaceholder: 'Escribe tu mensaje aquí...',
+      submit: 'Enviar Mensaje',
+      submitting: 'Enviando...',
+      success: '¡Gracias! Tu mensaje ha sido enviado exitosamente. Te contactaremos pronto.',
+      error: 'Lo sentimos, hubo un error al enviar tu mensaje. Por favor intenta de nuevo más tarde.'
+    },
+    error: {
+      loadInfo: 'Error al cargar la información de contacto. Por favor intenta de nuevo más tarde.'
+    }
+  }
 }

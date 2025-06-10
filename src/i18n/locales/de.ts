@@ -78,5 +78,42 @@ export default {
   },
   stayUpdated: 'Bleiben Sie auf dem Laufenden',
   emailAddress: 'Ihre E-Mail-Adresse',
-  subscribe: 'Abonnieren'
+  subscribe: 'Abonnieren',
+  contact: {
+    title: 'Kontakt',
+    subtitle: 'Kontaktieren Sie unser Team für alle Anfragen zu unseren Produkten und Dienstleistungen.',
+    info: {
+      title: 'Kontaktinformationen',
+      company: 'Unternehmen',
+      email: 'E-Mail',
+      phone: 'Telefon',
+      address: 'Adresse',
+      hours: 'Geschäftszeiten',
+      social: 'Folgen Sie uns'
+    },
+    form: {
+      title: 'Senden Sie uns eine Nachricht',
+      firstName: 'Vorname',
+      firstNamePlaceholder: 'Geben Sie Ihren Vornamen ein',
+      lastName: 'Nachname',
+      lastNamePlaceholder: 'Geben Sie Ihren Nachnamen ein',
+      email: 'E-Mail-Adresse',
+      emailPlaceholder: 'Geben Sie Ihre E-Mail-Adresse ein',
+      phone: 'Telefonnummer',
+      phonePlaceholder: 'Geben Sie Ihre Telefonnummer ein',
+      company: 'Unternehmen',
+      companyPlaceholder: 'Geben Sie Ihren Firmennamen ein',
+      subject: 'Betreff',
+      subjectPlaceholder: 'Geben Sie den Nachrichtenbetreff ein',
+      message: 'Nachricht',
+      messagePlaceholder: 'Geben Sie hier Ihre Nachricht ein...',
+      submit: 'Nachricht senden',
+      submitting: 'Wird gesendet...',
+      success: 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns bald bei Ihnen melden.',
+      error: 'Entschuldigung, beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.'
+    },
+    error: {
+      loadInfo: 'Fehler beim Laden der Kontaktinformationen. Bitte versuchen Sie es später erneut.'
+    }
+  }
 }

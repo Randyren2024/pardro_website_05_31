@@ -78,5 +78,42 @@ export default {
   },
   stayUpdated: '最新情報を入手',
   emailAddress: 'メールアドレス',
-  subscribe: '購読'
+  subscribe: '購読',
+  contact: {
+    title: 'お問い合わせ',
+    subtitle: '製品やサービスに関するお問い合わせは、お気軽にチームまでご連絡ください。',
+    info: {
+      title: '連絡先情報',
+      company: '会社',
+      email: 'メール',
+      phone: '電話',
+      address: '住所',
+      hours: '営業時間',
+      social: 'フォローする'
+    },
+    form: {
+      title: 'メッセージを送信',
+      firstName: '名前',
+      firstNamePlaceholder: '名前を入力してください',
+      lastName: '姓',
+      lastNamePlaceholder: '姓を入力してください',
+      email: 'メールアドレス',
+      emailPlaceholder: 'メールアドレスを入力してください',
+      phone: '電話番号',
+      phonePlaceholder: '電話番号を入力してください',
+      company: '会社名',
+      companyPlaceholder: '会社名を入力してください',
+      subject: '件名',
+      subjectPlaceholder: 'メッセージの件名を入力してください',
+      message: 'メッセージ',
+      messagePlaceholder: 'メッセージをここに入力してください...',
+      submit: 'メッセージを送信',
+      submitting: '送信中...',
+      success: 'ありがとうございます！メッセージが正常に送信されました。すぐにご連絡いたします。',
+      error: '申し訳ございませんが、メッセージの送信中にエラーが発生しました。後でもう一度お試しください。'
+    },
+    error: {
+      loadInfo: '連絡先情報の読み込みに失敗しました。後でもう一度お試しください。'
+    }
+  }
 }
