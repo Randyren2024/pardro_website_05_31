@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_company_mission_visions",
+  "info": {
+    "displayName": "Mission Vision",
+    "description": "Mission or vision statement"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "icon_svg": {
+      "type": "text",
+      "required": false
+    },
+    "icon_component": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
