@@ -1,8 +1,9 @@
 {
-  "collectionName": "components_company_mission_visions",
+  "collectionName": "components_about_value_items",
   "info": {
-    "displayName": "Mission Vision",
-    "description": "Mission or vision statement"
+    "displayName": "Value Item",
+    "icon": "atom",
+    "description": "Describes an individual value item with a title, description, and icon."
   },
   "options": {},
   "attributes": {
@@ -24,13 +25,9 @@
         }
       }
     },
-    "icon_svg": {
-      "type": "text",
-      "required": false
-    },
-    "icon_component": {
+    "icon_name": {
       "type": "string",
-      "required": false
+      "comment": "Name of the icon to be displayed (e.g., InnovationIcon)"
     }
   }
 }

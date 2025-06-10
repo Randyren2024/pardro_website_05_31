@@ -1,12 +1,17 @@
 {
-  "collectionName": "components_company_technologies",
+  "collectionName": "components_about_team_members",
   "info": {
-    "displayName": "Technology",
-    "description": "Technology and innovation information"
+    "displayName": "Team Member",
+    "icon": "user",
+    "description": "Represents a team member with their details and role."
   },
   "options": {},
   "attributes": {
-    "title": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -15,9 +20,8 @@
         }
       }
     },
-    "description": {
+    "bio": {
       "type": "text",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -27,12 +31,13 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": ["images"]
     },
-    "features": {
-      "type": "json",
-      "required": false
+    "key": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
