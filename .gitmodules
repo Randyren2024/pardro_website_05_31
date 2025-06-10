@@ -1,0 +1,3 @@
+[submodule "strapi-backend"]
+	path = strapi-backend
+	url = https://github.com/Randyren2024/strapi-r2xd.git

@@ -26,4 +26,4 @@ dist-ssr
 # Custom ignores
 chatgpt-extracted_files/
 DEEPRobotics-*.pdf
-strapi-backend/
+# strapi-backend/ - now managed as submodule
