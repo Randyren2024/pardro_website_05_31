@@ -549,12 +549,151 @@
 
 ---
 
+## AboutView.vue 页面内容块映射规划
+
+### 页面结构分析
+AboutView.vue 包含以下主要内容块：
+
+#### 1. Hero Section（英雄区块）
+**映射到：Page 内容类型**
+- `title`: "关于我们" 页面标题
+- `slug`: "about"
+- `content`: 英雄区块的副标题内容
+- `seo_title`, `seo_description`: SEO优化字段
+- `featured_image`: 可选的背景图片
+- `page_type`: "about"
+
+#### 2. Company Overview（公司概览）
+**映射到：新建 Company Info 单例类型**
+```json
+{
+  "title": "公司概览标题",
+  "description": "公司描述文本",
+  "overview_image": "概览图片",
+  "stats": {
+    "years_experience": "经验年数",
+    "products_delivered": "交付产品数",
+    "countries_served": "服务国家数"
+  }
+}
+```
+
+#### 3. Mission & Vision（使命与愿景）
+**映射到：Company Info 单例类型扩展**
+```json
+{
+  "mission": {
+    "title": "使命标题",
+    "description": "使命描述",
+    "icon_svg": "SVG图标代码"
+  },
+  "vision": {
+    "title": "愿景标题",
+    "description": "愿景描述",
+    "icon_svg": "SVG图标代码"
+  }
+}
+```
+
+#### 4. Our Values（企业价值观）
+**映射到：新建 Company Values 集合类型**
+```json
+{
+  "title": "价值观名称",
+  "description": "价值观描述",
+  "icon_component": "图标组件名",
+  "order": "排序号",
+  "is_active": "是否启用"
+}
+```
+
+#### 5. Team Section（团队介绍）
+**映射到：新建 Team Members 集合类型**
+```json
+{
+  "name": "姓名",
+  "position": "职位",
+  "bio": "个人简介",
+  "profile_image": "头像图片",
+  "key": "唯一标识",
+  "order": "显示顺序",
+  "is_active": "是否显示"
+}
+```
+
+#### 6. Technology & Innovation（技术创新）
+**映射到：Company Info 单例类型扩展**
+```json
+{
+  "technology": {
+    "title": "技术标题",
+    "description": "技术描述",
+    "image": "技术展示图片",
+    "features": ["特性列表数组"]
+  }
+}
+```
+
+#### 7. Contact CTA（联系我们行动号召）
+**映射到：Page 内容类型或 Contact Info 单例类型**
+```json
+{
+  "cta_title": "行动号召标题",
+  "cta_description": "行动号召描述",
+  "cta_button_text": "按钮文字",
+  "cta_link": "链接地址"
+}
+```
+
+### 推荐的Strapi内容类型结构
+
+#### 1. 扩展现有的 Page 内容类型
+添加关于页面特有字段：
+- `page_sections`: JSON字段，存储页面各区块配置
+- `hero_background`: 英雄区块背景设置
+
+#### 2. 新建 Company Info（单例类型）
+存储公司基本信息、使命愿景、技术介绍等相对固定的内容
+
+#### 3. 新建 Company Values（集合类型）
+管理企业价值观，支持动态增删改
+
+#### 4. 新建 Team Members（集合类型）
+管理团队成员信息，支持排序和状态控制
+
+### 实施建议
+
+1. **优先级**：先实现Company Info单例类型，再逐步添加集合类型
+2. **多语言支持**：所有内容类型都启用i18n插件
+3. **图片管理**：统一使用Strapi的媒体库管理所有图片资源
+4. **API集成**：前端通过Strapi REST API获取内容，替换硬编码的数据
+5. **缓存策略**：考虑在前端实现适当的缓存机制提升性能
+
 ## 实施时间表
 
-- **第一阶段（1-2周）**: About Us + Contact Us + Railway 部署验证
-- **第二阶段（1-2周）**: Product Landing Page
-- **第三阶段（2-3周）**: Blog 系统
-- **第四阶段（1周）**: Terms & Services + Privacy Policy
+### 第一阶段（1-2周）
+- 基础内容类型创建
+- Page 和 Contact Info 实施
+- Company Info 单例类型创建
+- 基本API集成
+
+### 第二阶段（2-3周）
+- Product 内容类型完善
+- Company Values 和 Team Members 集合类型
+- 图片上传和管理
+- AboutView.vue 与 Strapi 集成
+- 前端集成优化
+
+### 第三阶段（1-2周）
+- Blog 功能实现
+- SEO优化
+- 性能调优
+- 多语言内容管理
+
+### 第四阶段（1周）
+- 测试和部署
+- 文档完善
+- 培训和交接
 
 总预计时间：5-8周
 
