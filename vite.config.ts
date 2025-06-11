@@ -8,7 +8,21 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@use 'sass:color' as color;\n`,
+        api: 'modern-compiler',
+        silenceDeprecations: ['legacy-js-api']
       },
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['vue', 'vue-router', 'pinia'],
+          'ui': ['ant-design-vue'],
+          'utils': ['axios', 'vue-i18n']
+        }
+      }
+    }
+  }
 })
