@@ -1,3 +1,5 @@
-[submodule "strapi-backend"]
-	path = strapi-backend
-	url = https://github.com/Randyren2024/strapi-r2xd.git
+# Strapi backend has been removed
+# The following submodule configuration has been commented out
+# [submodule "strapi-backend"]
+# path = strapi-backend
+# url = https://github.com/Randyren2024/strapi-r2xd.git

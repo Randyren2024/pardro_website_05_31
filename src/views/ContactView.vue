@@ -255,7 +255,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { getContactInfo, type ContactInfo } from '../services/strapi'
+import { getContactInfo, type ContactInfo } from '../config/contactInfo'
 import { submitContactForm, type ContactFormData } from '../services/hubspot'
 
 const { t, locale } = useI18n()
@@ -281,11 +281,12 @@ const submitSuccess = ref(false)
 const submitError = ref<string | null>(null)
 
 // 加载联系信息
-const loadContactInfo = async () => {
+const loadContactInfo = () => {
   try {
     loading.value = true
     error.value = null
-    contactInfo.value = await getContactInfo(locale.value)
+    // 使用静态配置，不再需要异步调用
+    contactInfo.value = getContactInfo(locale.value)
   } catch (err) {
     console.error('Failed to load contact info:', err)
     error.value = 'Failed to load contact information'
