@@ -108,14 +108,14 @@ export interface Page {
 }
 
 // 获取页面内容（静态实现）
-export const getPageByType = (pageType: string, locale: string = 'en'): Page | null => {
+export const getPageByType = (_pageType: string, _locale: string = 'en'): Page | null => {
   // 这里可以添加静态页面内容
   // 目前返回null，因为没有实际页面数据
   return null
 }
 
 // 获取所有页面（静态实现）
-export const getPages = (locale: string = 'en'): Page[] => {
+export const getPages = (_locale: string = 'en'): Page[] => {
   // 这里可以添加静态页面内容列表
   // 目前返回空数组，因为没有实际页面数据
   return []
